@@ -1,0 +1,180 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "update": "disable",
+  "model": "ollama/qwen3.8-flash-next:125b-mlx",
+
+  "agents": {
+    "build": {
+      "model": "ollama/qwen3-coder-next:q4_K_M"
+    },
+    "plan": {
+      "model": "ollama/qwen3.8-flash-next:125b-mlx"
+    },
+    "architect": {
+      "model": "ollama/qwen3.8-flash-next:125b-mlx"
+    },
+    "specialist": {
+      "model": "ollama/inkling-2-mini:26b-a5b-nvfp4"
+    },
+    "reviewer": {
+      "model": "ollama/gemma4:31b-mlx"
+    },
+    "general": {
+      "model": "ollama/qwen3.8:27b-mlx"
+    },
+    "explore": {
+      "model": "ollama/glm-4.7-flash:q4_K_M"
+    },
+    "compaction": {
+      "model": "ollama/glm-4.7-flash:q4_K_M"
+    },
+    "title": {
+      "model": "ollama/glm-4.7-flash:q4_K_M"
+    },
+    "summary": {
+      "model": "ollama/glm-4.7-flash:q4_K_M"
+    }
+  },
+
+  "providers": {
+    "ollama": {
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://10.0.2.2:11434/v1",
+        "timeout": 900000,
+        "headerTimeout": 120000
+      },
+
+      "models": {
+        "qwen3.8-flash-next:125b-mlx": {
+          "name": "Qwen 3.8 Flash Next 125B NVFP4 MLX",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          },
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true,
+              "effort": ["low", "medium", "xhigh"]
+            }
+          },
+          "body": {
+            "temperature": 0.2
+          }
+        },
+
+        "qwen3-coder-next:q4_K_M": {
+          "name": "Qwen3 Coder Next 80B-A3B Q4_K_M",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          },
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "body": {
+            "temperature": 0.2,
+            "top_p": 0.95
+          }
+        },
+
+        "glm-4.7-flash:q4_K_M": {
+          "name": "GLM-4.7-Flash 30B-A3B Q4_K_M",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          },
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true
+            }
+          }
+        },
+
+        "qwen3.8:27b-mlx": {
+          "name": "Qwen3.8 27B MLX",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true,
+              "effort": ["low", "medium", "xhigh"]
+            }
+          },
+          "body": {
+            "temperature": 0.6,
+            "top_p": 0.95
+          },
+          "variants": [
+            {
+              "id": "low",
+              "body": {
+                "reasoning_effort": "low"
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "reasoning_effort": "medium"
+              }
+            },
+            {
+              "id": "xhigh",
+              "body": {
+                "reasoning_effort": "xhigh"
+              }
+            }
+          ]
+        },
+
+        "inkling-2-mini:26b-a5b-nvfp4": {
+          "name": "Inkling 2 Mini 26B-A5B NVFP4",
+          "limit": {
+            "context": 32768,
+            "output": 16384
+          },
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true
+            }
+          }
+        },
+
+        "gemma4:31b-mlx": {
+          "name": "Gemma 4 31B MLX",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          },
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true
+            }
+          },
+          "body": {
+            "temperature": 0.1
+          }
+        }
+      }
+    }
+  }
+}
