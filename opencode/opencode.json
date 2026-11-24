@@ -23,16 +23,16 @@
       "model": "ollama/qwen3.8:27b-mlx"
     },
     "explore": {
-      "model": "ollama/glm-4.7-flash:q4_K_M"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
     },
     "compaction": {
-      "model": "ollama/glm-4.7-flash:q4_K_M"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
     },
     "title": {
-      "model": "ollama/glm-4.7-flash:q4_K_M"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
     },
     "summary": {
-      "model": "ollama/glm-4.7-flash:q4_K_M"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
     }
   },
 
@@ -80,6 +80,25 @@
           "body": {
             "temperature": 0.2,
             "top_p": 0.95
+          }
+        },
+
+        "qwen3.6:35b-a3b-coding-mxfp8": {
+          "name": "Qwen3.6 35B-A3B Coding MXFP8",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          },
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image"],
+            "output": ["text"],
+            "reasoning": {
+              "supported": true
+            }
+          },
+          "body": {
+            "temperature": 0.2
           }
         },
 
