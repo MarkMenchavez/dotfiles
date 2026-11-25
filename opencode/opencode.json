@@ -63,13 +63,33 @@
           },
           "body": {
             "temperature": 0.2
-          }
+          },
+          "variants": [
+            {
+              "id": "low",
+              "body": {
+                "reasoning_effort": "low"
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "reasoning_effort": "medium"
+              }
+            },
+            {
+              "id": "xhigh",
+              "body": {
+                "reasoning_effort": "xhigh"
+              }
+            }
+          ]          
         },
 
         "qwen3-coder-next:q4_K_M": {
           "name": "Qwen3 Coder Next 80B-A3B Q4_K_M",
           "limit": {
-            "context": 131072,
+            "context": 65536,
             "output": 16384
           },
           "capabilities": {
@@ -86,7 +106,7 @@
         "qwen3.6:35b-a3b-coding-mxfp8": {
           "name": "Qwen3.6 35B-A3B Coding MXFP8",
           "limit": {
-            "context": 131072,
+            "context": 65536,
             "output": 16384
           },
           "capabilities": {
