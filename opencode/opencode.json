@@ -8,10 +8,10 @@
       "model": "ollama/qwen3-coder-next:q4_K_M"
     },
     "plan": {
-      "model": "ollama/qwen3.8-flash-next:125b-mlx"
+      "model": "ollama/qwen3.8-flash-next:125b-mlx#medium"
     },
     "architect": {
-      "model": "ollama/qwen3.8-flash-next:125b-mlx"
+      "model": "ollama/qwen3.8-flash-next:125b-mlx#xhigh"
     },
     "specialist": {
       "model": "ollama/inkling-2-mini:26b-a5b-nvfp4"
@@ -23,16 +23,16 @@
       "model": "ollama/qwen3.8:27b-mlx"
     },
     "explore": {
-      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8#low"
     },
     "compaction": {
-      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8#low"
     },
     "title": {
-      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8#none"
     },
     "summary": {
-      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8"
+      "model": "ollama/qwen3.6:35b-a3b-coding-mxfp8#low"
     }
   },
 
@@ -94,28 +94,39 @@
             "input": ["text", "image"],
             "output": ["text"],
             "reasoning": {
-              "supported": true
+              "supported": true,
+              "effort": ["none", "low", "medium", "high"]
             }
           },
           "body": {
             "temperature": 0.2
-          }
-        },
-
-        "glm-4.7-flash:q4_K_M": {
-          "name": "GLM-4.7-Flash 30B-A3B Q4_K_M",
-          "limit": {
-            "context": 131072,
-            "output": 16384
           },
-          "capabilities": {
-            "tools": true,
-            "input": ["text"],
-            "output": ["text"],
-            "reasoning": {
-              "supported": true
+          "variants": [
+            {
+              "id": "none",
+              "body": {
+                "reasoning_effort": "none"
+              }
+            },
+            {
+              "id": "low",
+              "body": {
+                "reasoning_effort": "low"
+              }
+            },
+            {
+              "id": "medium",
+              "body": {
+                "reasoning_effort": "medium"
+              }
+            },
+            {
+              "id": "high",
+              "body": {
+                "reasoning_effort": "high"
+              }
             }
-          }
+          ]
         },
 
         "qwen3.8:27b-mlx": {
